@@ -1,6 +1,6 @@
 import "./App.css";
 
-let name = "Kumar Gaurav";
+let name = "<b>Kumar Gaurav</b>";
 function App() {
     return (
         <>
