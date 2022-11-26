@@ -4,9 +4,20 @@ import PropTypes from "prop-types";
 export default function Navbar(props) {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav
+                className={`navbar navbar-expand-lg navbar-${props.mode.color} bg-${props.mode.color}`}
+            >
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <a
+                        className="navbar-brand"
+                        href="/"
+                        style={{
+                            color:
+                                props.mode.color === "light"
+                                    ? "#02244b"
+                                    : "white",
+                        }}
+                    >
                         {props.title}
                     </a>
                     <button
@@ -30,17 +41,32 @@ export default function Navbar(props) {
                                     className="nav-link active"
                                     aria-current="page"
                                     href="/"
+                                    style={{
+                                        color:
+                                            props.mode.color === "light"
+                                                ? "#02244b"
+                                                : "white",
+                                    }}
                                 >
                                     Home
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/">
+                                <a
+                                    className="nav-link"
+                                    href="/"
+                                    style={{
+                                        color:
+                                            props.mode.color === "light"
+                                                ? "#02244b"
+                                                : "white",
+                                    }}
+                                >
                                     {props.aboutText}
                                 </a>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search">
+                        {/* <form className="d-flex" role="search">
                             <input
                                 className="form-control me-2"
                                 type="search"
@@ -50,7 +76,28 @@ export default function Navbar(props) {
                             <button className="btn btn-primary" type="submit">
                                 Search
                             </button>
-                        </form>
+                        </form> */}
+                        <div
+                            className={`form-check form-switch text-${
+                                props.mode.color === "light"
+                                    ? "#02244b"
+                                    : "light"
+                            }`}
+                        >
+                            <input
+                                className="form-check-input"
+                                type="checkbox"
+                                role="switch"
+                                id="modeChange"
+                                onClick={props.handleMode}
+                            />
+                            <label
+                                className="form-check-label"
+                                htmlFor="modeChange"
+                            >
+                                Enable {props.modeName} Mode
+                            </label>
+                        </div>
                     </div>
                 </div>
             </nav>
