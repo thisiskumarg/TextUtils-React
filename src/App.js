@@ -2,10 +2,22 @@ import "./App.css";
 // import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
+import Alert from "./components/Alert";
 import React, { useState } from "react";
 
 function App() {
     const [modeName, setModeName] = useState("Dark");
+    const [alert, setAlert] = useState(null);
+
+    const showAlert = (message, type) => {
+        setAlert({
+            message: message,
+            type: type,
+        });
+        setTimeout(() => {
+            setAlert(null);
+        }, 2000);
+    };
 
     const [mode, setMode] = useState({
         color: "light",
@@ -20,6 +32,7 @@ function App() {
             });
             setModeName("Light");
             document.body.style.backgroundColor = "#043165";
+            showAlert("Dark Mode has been enabled.", "success");
         } else {
             setMode({
                 color: "light",
@@ -27,6 +40,7 @@ function App() {
             });
             document.body.style.backgroundColor = "white";
             setModeName("Dark");
+            showAlert("Light Mode has been enabled.", "success");
         }
     };
 
@@ -40,8 +54,10 @@ function App() {
                 modeName={modeName}
                 handleMode={handleMode}
             />
+            <Alert alert={alert} />
             <div className="container my-3">
                 <TextForm
+                    showAlert={showAlert}
                     heading="Enter the text to analyze below"
                     mode={mode}
                 />
