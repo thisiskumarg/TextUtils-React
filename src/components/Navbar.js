@@ -11,7 +11,7 @@ export default function Navbar(props) {
                 <div className="container-fluid">
                     <a
                         className="navbar-brand"
-                        href="/"
+                        href="#"
                         style={{
                             color:
                                 props.mode.color === "light"
