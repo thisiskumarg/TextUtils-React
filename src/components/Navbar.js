@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
     return (
@@ -9,9 +9,9 @@ export default function Navbar(props) {
                 className={`navbar navbar-expand-lg navbar-${props.mode.color} bg-${props.mode.color}`}
             >
                 <div className="container-fluid">
-                    <Link
+                    <a
                         className="navbar-brand"
-                        to="/"
+                        href="/"
                         style={{
                             color:
                                 props.mode.color === "light"
@@ -20,7 +20,7 @@ export default function Navbar(props) {
                         }}
                     >
                         {props.title}
-                    </Link>
+                    </a>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -37,11 +37,11 @@ export default function Navbar(props) {
                         id="navbarSupportedContent"
                     >
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link
+                            {/* <li className="nav-item">
+                                <a
                                     className="nav-link active"
                                     aria-current="page"
-                                    to="/"
+                                    href="/"
                                     style={{
                                         color:
                                             props.mode.color === "light"
@@ -50,7 +50,7 @@ export default function Navbar(props) {
                                     }}
                                 >
                                     Home
-                                </Link>
+                                </a>
                             </li>
                             <li className="nav-item">
                                 <Link
@@ -65,7 +65,7 @@ export default function Navbar(props) {
                                 >
                                     {props.aboutText}
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                         {/* <form className="d-flex" role="search">
                             <input
