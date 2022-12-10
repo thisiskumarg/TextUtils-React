@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
     return (
@@ -8,9 +9,9 @@ export default function Navbar(props) {
                 className={`navbar navbar-expand-lg navbar-${props.mode.color} bg-${props.mode.color}`}
             >
                 <div className="container-fluid">
-                    <a
+                    <Link
                         className="navbar-brand"
-                        href="/"
+                        to="/"
                         style={{
                             color:
                                 props.mode.color === "light"
@@ -19,7 +20,7 @@ export default function Navbar(props) {
                         }}
                     >
                         {props.title}
-                    </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -37,10 +38,10 @@ export default function Navbar(props) {
                     >
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a
+                                <Link
                                     className="nav-link active"
                                     aria-current="page"
-                                    href="/"
+                                    to="/"
                                     style={{
                                         color:
                                             props.mode.color === "light"
@@ -49,12 +50,12 @@ export default function Navbar(props) {
                                     }}
                                 >
                                     Home
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a
+                                <Link
                                     className="nav-link"
-                                    href="/"
+                                    to="/about"
                                     style={{
                                         color:
                                             props.mode.color === "light"
@@ -63,7 +64,7 @@ export default function Navbar(props) {
                                     }}
                                 >
                                     {props.aboutText}
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                         {/* <form className="d-flex" role="search">
